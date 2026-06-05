@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-st.title("Weekly Scorecard Automation")
+st.title("Scorecard Automation")
 
 uploaded_file = st.file_uploader(
     "Upload Excel",
@@ -10,12 +10,11 @@ uploaded_file = st.file_uploader(
 
 if uploaded_file:
 
-    raw = pd.read_excel(
+    master = pd.read_excel(
         uploaded_file,
-        sheet_name="Cella",
-        header=None
+        sheet_name="MASTER",
+        nrows=5
     )
 
-    st.write("Raw Sheet Cella")
-
-    st.dataframe(raw.head(15))
+    st.subheader("MASTER Columns")
+    st.write(list(master.columns))
