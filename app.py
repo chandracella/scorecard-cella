@@ -13,8 +13,7 @@ if uploaded_file:
     master = pd.read_excel(
         uploaded_file,
         sheet_name="MASTER",
-        nrows=5
+        nrows=10
     )
 
-    st.subheader("MASTER Columns")
-    st.write(list(master.columns))
+    st.write(master.head(10))
